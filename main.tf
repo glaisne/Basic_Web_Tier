@@ -66,7 +66,7 @@ resource "azurerm_linux_virtual_machine" "vm-web01" {
 
     admin_ssh_key {
         username = "gene"
-        public_key = file("${path.module}/../common/id_ed25519.pub")
+        public_key = file("${path.module}/certificate/certificate.pub")
     }
 
     os_disk {
