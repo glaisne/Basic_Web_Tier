@@ -56,14 +56,18 @@ sed -i "/<storage_account_name>/YOUR_STORAGE_ACCOUNT_NAME/" backend.hcl     # St
 sed -i "/<container_name>/YOUR_CONTAINER_NAME/" backend.hcl                 # Storage Container where the tfstate will be
 sed -i "/<key>/KEY/" backend.hcl                                            # Path in the container where the tfstate will be
 
-# 5  Initialise Terraform (local state first)
+# 5 Setup SSH Certificate
+mkdir certificate
+ssh-keygen -t rsa -b 4096 -m PEM -f ./certificate/certificate
+
+# 6  Initialise Terraform (local state first)
 terraform init -backend-config=backend.hcl
 
-# 6  Plan & apply
+# 7  Plan & apply
 terraform plan -var-file=envs/dev.tfvars
 terraform apply -var-file=envs/dev.tfvars
 
-# 7  Destroy when finished
+# 8  Destroy when finished
 terraform destroy -var-file=envs/dev.tfvars
 ```
 
@@ -98,13 +102,17 @@ move-item -path .\backend.hcl.example -destination .\backend.hcl -force
                           -replace "<key>", "KEY" |                                             # Path in the container where the tfstate will be
     Set-Content backend.hcl
 
-# 5  Initialise Terraform (local state first)
+# 5 Setup SSH Certificate
+mkdir certificate
+ssh-keygen -t rsa -b 4096 -m PEM -f ./certificate/certificate
+
+# 6  Initialise Terraform (local state first)
 terraform init -backend-config=backend.hcl
 
-# 6  Plan & apply
+# 7  Plan & apply
 terraform plan -var-file=envs/dev.tfvars
 terraform apply -var-file=envs/dev.tfvars
 
-# 7  Destroy when finished
+# 8  Destroy when finished
 terraform destroy -var-file=envs/dev.tfvars
 ```
