@@ -12,7 +12,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  # Optional: reference variables if you truly need to pin a sub/tenant
-  # subscription_id = var.subscription_id
-  # tenant_id       = var.tenant_id
+  subscription_id = var.subscription_id
+  tenant_id       = var.tenant_id
 }
