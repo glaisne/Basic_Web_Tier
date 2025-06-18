@@ -47,3 +47,6 @@ backend*.hcl
 
 # Ignore files marked as "local"
 *.local
+
+# Certificate files
+certificate*
