@@ -37,5 +37,11 @@ variable "vnet_address_space" {
 variable "source_address_space" {
     type = string
     description = "IPv4 address that is allowed access to web application"
-    default = "10.10.10.10/36"
+    default = "10.10.10.10/32"
 }
+
+# variable "public_certificate_path" {
+#     type = string
+#     description = "Path to the public certificate file"
+#     default = "${path.module}/certificate/cert.pem"
+# }
