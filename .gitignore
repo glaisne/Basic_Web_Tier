@@ -49,4 +49,5 @@ backend*.hcl
 *.local
 
 # Certificate files
-certificate*
+certificate
+!certificate.pub
